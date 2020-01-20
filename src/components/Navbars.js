@@ -11,7 +11,7 @@ const Navbars = ({ changeContent, signOut }) => {
             <button className='btn btn-dark' id='button' onClick={() => changeContent(1)}>Annuaire</button>
           </li>
           <li className='nav-item'>
-            <button className='btn btn-dark' id='button' onClick={() => changeContent(3)}>Ajouter une annonce</button>
+            <button className='btn btn-dark' id='button' onClick={() => changeContent(2)}>Ajouter une annonce</button>
           </li>
           <li>
             <button className='btn btn-dark' id='button'>Se déconnecter</button>

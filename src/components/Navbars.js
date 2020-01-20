@@ -14,7 +14,7 @@ const Navbars = ({ changeContent, signOut }) => {
             <button className='btn btn-dark' id='button' onClick={() => changeContent(3)}>Ajouter une annonce</button>
           </li>
           <li>
-            <button className='btn btn-dark' id='button'>Sign out</button>
+            <button className='btn btn-dark' id='button'>Se déconnecter</button>
           </li>
         </ul>
       </div>

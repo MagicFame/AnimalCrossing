@@ -10,7 +10,7 @@ const AffichageAnimal = ({ detail }) => {
     }
   }
   return (
-    <div className='card mx-auto' style={{ marginTop: '10%', width: '30%', backgroundColor: '#6B7FA4' }}>
+    <div className='card mx-auto' style={{ marginTop: '3%', width: '30%', backgroundColor: '#6B7FA4' }}>
 
       <img className='card-img-top' src={requireImage(detail.image)} alt={detail.nom} />
       <div className='card-body'>

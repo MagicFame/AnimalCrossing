@@ -7,10 +7,9 @@ export default class App extends Component {
   state = {
     printedContent : 1
   }
-  
   contentDisplayed = () => {
     if (this.state.printedContent === 1) {
-      return <Dashboard token={this.state.token} id={this.state.id} user={this.state.user} />
+      return <Dashboard />
     } else if (this.state.printedContent === 2) return <AddAnnonce id={this.state.id} changeContent={this.changeContent} />
   }
 

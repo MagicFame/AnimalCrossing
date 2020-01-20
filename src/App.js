@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import Navbars from './components/Navbars'
+import Dashboard from './components/Dashboard'
+import AddAnnonce from './components/AddAnnonce'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  state = {
+    printedContent : 1
+  }
+  
+  contentDisplayed = () => {
+    if (this.state.printedContent === 1) {
+      return <Dashboard token={this.state.token} id={this.state.id} user={this.state.user} />
+    } else if (this.state.printedContent === 2) return <AddAnnonce id={this.state.id} changeContent={this.changeContent} />
+  }
+
+  changeContent = id => {
+    const printedContent = id
+    this.setState({ printedContent })
+  }
+  render () {
+    return (
+      <div className='wrapper'>
+        <Navbars
+          changeContent={this.changeContent}
+          signOut={this.signOut}
+        />
+        {this.contentDisplayed()}
+      </div>
+    )
+  }
 }
-
-export default App;

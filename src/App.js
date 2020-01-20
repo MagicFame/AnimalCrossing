@@ -4,6 +4,7 @@ import Dashboard from './components/Dashboard'
 import AddAnnonce from './components/AddAnnonce'
 import animaux from './animaux'
 import Login from './components/Login'
+import Register from './components/Register'
 
 export default class App extends Component {
   state = {
@@ -21,10 +22,13 @@ export default class App extends Component {
   }
 
   contentDisplayed = () => {
-    if (this.state.printedContent === 1) {
-      return <Dashboard animaux={this.state.animaux} />
-    } else if (this.state.printedContent === 2) return <AddAnnonce ajouterAnnonce={(annonce) => this.ajouterAnnonce(annonce)} />
-    else return <Login login={(name) => this.login(name)} />
+    switch (this.state.printedContent) {
+      case 1: return <Dashboard animaux={this.state.animaux} />
+      case 2: return <AddAnnonce ajouterAnnonce={(annonce) => this.ajouterAnnonce(annonce)} />
+      case 3: return <Login login={(name) => this.login(name)} />
+      case 4: return <Register login={(name) => this.login(name)} />
+      default: break
+    }
   }
 
   changeContent = id => {
@@ -40,9 +44,12 @@ export default class App extends Component {
     this.changeContent(1)
   }
 
-  login = name => {
-    console.log(name)
-    this.changeContent(1)
+  login = loginReturn => {
+    console.log(loginReturn)
+    if(loginReturn.name) {
+      this.changeContent(1)
+    }
+    else this.changeContent(loginReturn.aim)
   }
 
   render () {

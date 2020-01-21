@@ -1,12 +1,11 @@
 import React from 'react'
 
 const AffichageAnimal = ({ detail }) => {
-
   const requireImage = chemin => {
     try {
       return require(`../images/${chemin}`)
     } catch (err) {
-      return require(`../images/default.jpg`)
+      return require('../images/default.jpg')
     }
   }
   return (
@@ -17,7 +16,7 @@ const AffichageAnimal = ({ detail }) => {
         <div className='card-title'>
           <h2>{detail.nom}</h2>
         </div>
-        <p className='card-text'>Type : {detail.type} <br />Race : {detail.race}</p>
+        <p className='card-text'>Type : {detail.type} <br />Race : {detail.race}<br />Distance: {detail.distance}</p>
       </div>
     </div>
   )

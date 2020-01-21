@@ -53,8 +53,8 @@ export default class Login extends Component {
                 <input type='password' className='form-control' name='mdp2' id='mdp2' onChange={this.handleChange} placeholder='Confirmez votre mot de passe' required />
               </div>
               <div className='text-center form-group'>
-                <button type='button' className='btn btn-primary' onClick={this.handleClick}>Se connecter</button>
-                <button type='button' className='btn btn-primary' onClick={this.register} disabled={!this.state.nom || !this.passwordValidated()}>Créer un compte</button>
+                <button type='button' style={{ marginRight: '5%'}} className='btn btn-light' onClick={this.handleClick}>Se connecter</button>
+                <button type='button' className='btn btn-light' onClick={this.register} disabled={!this.state.nom || !this.passwordValidated()}>Créer un compte</button>
               </div>
             </form>
           </div>

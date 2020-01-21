@@ -10,6 +10,7 @@ export default class App extends Component {
   state = {
     printedContent : 1,
     animaux : {},
+    connected: false,
     nomCompte : ''
   }
 
@@ -43,10 +44,19 @@ export default class App extends Component {
     console.log(animaux)
     this.changeContent(1)
   }
+  logout = () => {
+    this.setState({
+      connected: false,
+      nomCompte: ''
+    })
+  }
 
   login = loginReturn => {
-    console.log(loginReturn)
     if(loginReturn.name) {
+      this.setState({ 
+        nomCompte : loginReturn.name,
+        connected: true 
+      })
       this.changeContent(1)
     }
     else this.changeContent(loginReturn.aim)
@@ -56,8 +66,10 @@ export default class App extends Component {
     return (
       <div className='wrapper'>
         <Navbars
+          logout={this.logout}
           changeContent={this.changeContent}
-          signOut={this.signOut}
+          pseudo={this.state.nomCompte}
+          connected={this.state.connected}
         />
         {this.contentDisplayed()}
       </div>

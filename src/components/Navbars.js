@@ -1,10 +1,16 @@
 import React from 'react'
 import './Navbar.css'
 
-const Navbars = ({ changeContent, signOut }) => {
+const Navbars = ({ changeContent, pseudo, connected, logout }) => {
   return (
     <div>
-      <div style={{ position: 'absolute', top: '15px', right: '15px' }}><button className='btn btn-primary' onClick={() => changeContent(3)}>Login</button></div>
+      {
+        connected
+          ? <div style={{ position: 'absolute', top: '15px', right: '15px' }}>
+            Bonjour {pseudo}
+          </div>
+          : <div style={{ position: 'absolute', top: '15px', right: '15px' }}><button className='btn btn-dark' onClick={() => changeContent(3)}>Login</button></div>
+      }
       <nav className='navbar navbar-expand-md navbar-dark fixed-left' style={{ backgroundColor: '#6B7FA4' }} id='sidebar'>
         <img src={require('../images/logo.jpg')} className='img-fluid' alt='Resposive logo' />
         <div className='collapse navbar-collapse' id='navbarsExampleDefault' style={{ marginTop: '15%' }}>
@@ -15,9 +21,13 @@ const Navbars = ({ changeContent, signOut }) => {
             <li className='nav-item'>
               <button className='btn btn-dark' id='button' onClick={() => changeContent(2)}>Ajouter une annonce</button>
             </li>
-            <li>
-              <button className='btn btn-dark' id='button'>Se déconnecter</button>
-            </li>
+            {
+              connected
+                ? <li>
+              <button className='btn btn-dark' id='button' onClick={logout}>Se déconnecter</button>
+              </li>
+                : null
+            }
           </ul>
         </div>
       </nav>
